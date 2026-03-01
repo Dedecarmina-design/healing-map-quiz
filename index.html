@@ -60,7 +60,6 @@ opacity:0.045;
 
 .geo-bg .geo-1 { top:-10%; right:-5%; width:70vw; }
 .geo-bg .geo-2 { bottom:-15%; left:-10%; width:55vw; opacity:0.03; }
-.geo-bg .geo-3 { top:40%; left:50%; width:30vw; transform:translateX(-50%); opacity:0.025; }
 
 /* ── AMBIENT GRADIENT ── */
 .ambient {
@@ -338,15 +337,6 @@ margin-bottom:12px;
 max-width:780px;
 }
 
-.q-sub {
-font-size:0.9rem;
-color:var(--text-muted);
-font-style:italic;
-margin-bottom:36px;
-max-width:680px;
-line-height:1.65;
-}
-
 .options { display:flex; flex-direction:column; gap:8px; max-width:780px; }
 
 .opt {
@@ -576,6 +566,154 @@ line-height:1.7;
 margin-bottom:28px;
 }
 
+/* ── PRICING SECTION ── */
+#pricing-section { background:var(--dark); border-top:1px solid var(--border); }
+
+.pricing-header {
+text-align:center;
+padding-bottom:52px;
+margin-bottom:52px;
+border-bottom:1px solid var(--border);
+position:relative;
+}
+
+.pricing-header::after {
+content:'';
+position:absolute;
+bottom:-1px; left:50%;
+transform:translateX(-50%);
+width:80px; height:1px;
+background:var(--gold);
+}
+
+.pricing-title {
+font-family:'Cormorant Garamond', serif;
+font-size:clamp(2rem, 4vw, 3rem);
+font-weight:300;
+color:var(--cream);
+margin-bottom:10px;
+line-height:1.2;
+}
+
+.pricing-subtitle {
+font-size:0.95rem;
+color:var(--text-muted);
+line-height:1.7;
+max-width:600px;
+margin:0 auto;
+}
+
+.price-grid {
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:1px;
+background:var(--border);
+margin-bottom:52px;
+}
+
+.price-col {
+background:var(--dark-3);
+padding:44px 36px;
+position:relative;
+transition:background 0.3s;
+}
+
+.price-col:hover { background:var(--dark-4); }
+.price-col.featured { background:var(--dark-4); }
+
+.price-col.featured::before {
+content:'RECOMMENDED';
+position:absolute;
+top:0; left:0; right:0;
+background:linear-gradient(135deg, var(--gold-2), var(--gold-3));
+color:var(--dark);
+text-align:center;
+padding:7px;
+font-size:0.58rem;
+letter-spacing:0.3em;
+font-weight:600;
+}
+
+.price-col.featured { padding-top:52px; }
+
+.price-name {
+font-family:'Cormorant Garamond', serif;
+font-size:1.5rem;
+font-weight:300;
+color:var(--cream);
+margin-bottom:4px;
+}
+
+.price-dur {
+font-size:0.65rem;
+letter-spacing:0.2em;
+text-transform:uppercase;
+color:var(--text-muted);
+margin-bottom:24px;
+}
+
+.price-amount {
+font-family:'Cormorant Garamond', serif;
+font-size:3rem;
+font-weight:300;
+color:var(--gold-3);
+line-height:1;
+margin-bottom:4px;
+}
+
+.price-currency {
+font-size:1.2rem;
+vertical-align:super;
+color:var(--text-muted);
+margin-right:2px;
+}
+
+.price-divider {
+height:1px;
+background:var(--border);
+margin:24px 0;
+}
+
+.feat-list { list-style:none; margin-bottom:32px; }
+
+.feat-list li {
+font-size:0.92rem;
+padding:10px 0 10px 20px;
+border-bottom:1px solid var(--border);
+color:var(--text-mid);
+position:relative;
+line-height:1.4;
+}
+
+.feat-list li::before {
+content:'—';
+position:absolute;
+left:0;
+color:var(--gold-2);
+font-size:0.75rem;
+top:11px;
+}
+
+.price-cta {
+width:100%;
+padding:14px 28px;
+background:var(--gold);
+color:var(--dark);
+border:none;
+border-radius:6px;
+font-size:0.72rem;
+letter-spacing:0.3em;
+text-transform:uppercase;
+font-weight:600;
+cursor:pointer;
+transition:all 0.3s;
+}
+
+.price-cta:hover {
+background:var(--gold-3);
+transform:translateY(-2px);
+}
+
 /* ── ANIMATIONS ── */
 @keyframes riseIn {
 from { opacity:0; transform:translateY(16px); }
@@ -586,7 +724,7 @@ to { opacity:1; transform:translateY(0); }
 
 /* ── RESPONSIVE ── */
 @media(max-width:700px) {
-.pillars, .content-grid { grid-template-columns:1fr; }
+.pillars, .content-grid, .price-grid { grid-template-columns:1fr; }
 .content-cell.full { grid-column:1; }
 .hero { padding:60px 20px 40px; }
 .section-inner { padding:52px 20px; }
@@ -748,6 +886,56 @@ color: #e8e0d0 !important;
         <script async data-uid="9524921818" src="https://andreea-healing-map.kit.com/9524921818/index.js"></script>
         <p class="privacy">Your data stays private. Unsubscribe anytime.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ── -->
+<section id="pricing-section" class="section">
+  <div class="section-inner">
+    <div class="pricing-header">
+      <h2 class="pricing-title">Your Personalized Healing Plan</h2>
+      <p class="pricing-subtitle">Choose the program that resonates with your healing timeline. Each includes your constitution-specific protocol, food lists, supplement timing, and direct support from me.</p>
+    </div>
+
+    <div class="price-grid">
+      <div class="price-col">
+        <h3 class="price-name">9-Day Intensive</h3>
+        <p class="price-dur">Quick Start</p>
+        <div class="price-amount"><span class="price-currency">€</span>147</div>
+        <div class="price-divider"></div>
+        <ul class="feat-list">
+          <li>Your constitution-specific protocol</li>
+          <li>9-day detox roadmap</li>
+          <li>Shopping list (verified supplements)</li>
+          <li>Meal plan & recipes</li>
+          <li>Email support (3 check-ins)</li>
+        </ul>
+        <button class="price-cta" onclick="alert('Contact: healingmap.project@gmail.com')">Get Started</button>
+      </div>
+
+      <div class="price-col featured">
+        <h3 class="price-name">28-Day Transformation</h3>
+        <p class="price-dur">Full Program</p>
+        <div class="price-amount"><span class="price-currency">€</span>297</div>
+        <div class="price-divider"></div>
+        <ul class="feat-list">
+          <li>Complete constitution protocol</li>
+          <li>28-day healing journey</li>
+          <li>Weekly meal plans & recipes</li>
+          <li>Supplement timing guide (per dosha)</li>
+          <li>Unlimited email support</li>
+          <li>Weekly check-in calls (4 sessions)</li>
+          <li>Bonus: Consciousness work guide</li>
+        </ul>
+        <button class="price-cta" onclick="alert('Contact: healingmap.project@gmail.com')">Get Started</button>
+      </div>
+    </div>
+
+    <div style="text-align:center;padding:52px 40px;border-top:1px solid var(--border);">
+      <p style="font-family:'Cormorant Garamond', serif;font-style:italic;font-size:1.15rem;color:var(--text-mid);line-height:1.75;max-width:580px;margin:0 auto;">
+        Both programs include lifetime access to your personalized protocols and the ability to reach out anytime you have questions about your healing journey.
+      </p>
     </div>
   </div>
 </section>
@@ -943,11 +1131,22 @@ function showResults() {
     '<div class="content-cell"><div class="cell-label">When Imbalanced</div><div class="cell-text"><p>' + res.imbalanced + '</p></div></div>' +
     '<div class="content-cell"><div class="cell-label">What You Need</div><div class="cell-text"><p>' + res.needs + '</p></div></div>' +
     '<div class="content-cell full"><div class="cell-label">Your Healing Map Focus</div><div class="cell-text"><p>' + res.focus + '</p></div></div>' +
+    '</div>' +
+    '<div style="text-align:center;margin-top:52px;padding-top:52px;border-top:1px solid var(--border);">' +
+    '<button class="btn-primary" onclick="goToPricing()" style="justify-content:center;">' +
+    'See Your Personalized Plan <span class="btn-arrow">→</span>' +
+    '</button>' +
     '</div>';
   
   document.getElementById('result-body').innerHTML = html;
   document.getElementById('quiz-section').classList.remove('active');
   document.getElementById('results-section').classList.add('active');
+}
+
+function goToPricing() {
+  document.getElementById('results-section').classList.remove('active');
+  document.getElementById('pricing-section').classList.add('active');
+  window.scrollTo(0, 0);
 }
 </script>
 
